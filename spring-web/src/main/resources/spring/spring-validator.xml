@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:validator="http://com.jd.jr/schema/validator"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://com.jd.jr/schema/validator http://com.jd.jr/schema/validator/validator.xsd"
+       default-lazy-init="false" default-autowire="byName">
+
+    <validator:validator id="itemUtilVoValidator" validatorClass="com.jd.jr.validator.service.ItemFullVo1">
+        <validator:property name="skuId"   >
+            <validator:NotNull message="请填写商品skuId"/>
+            <validator:Size message="请保证商品skuId最大长度为20,最小为5。" max="20" min="5"/>
+        </validator:property>
+        <validator:property name="merchantId"   >
+            <validator:NotNull message="请选择商户"/>
+        </validator:property>
+        <validator:property name="shopId"   >
+            <validator:NotNull message="请选择店铺"/>
+        </validator:property>
+        <validator:property name="itemCode"   >
+            <validator:NotNull message="商品编号不能为空"/>
+            <validator:Max message="请保证商品编号最大值是5。" value="5" />
+        </validator:property>
+        <validator:property name="itemName"   >
+            <validator:NotNull message="请填写商品名称"/>
+        </validator:property>
+        <validator:property name="insuranceCode"   >
+            <validator:NotNull message="请填写险种编码"/>
+        </validator:property>
+        <validator:property name="insuranceName"   >
+            <validator:NotNull message="请填写险种名称"/>
+        </validator:property>
+        <validator:property name="insuranceType"   >
+            <validator:NotNull message="请选择保险类型"/>
+        </validator:property>
+        <validator:property name="amount"   >
+            <validator:NotNull message="请填写商品单价"/>
+        </validator:property>
+        <!--        <validator:property name="minAmount"   >
+                    <validator:NotNull message="请填写起购金额"/>
+                </validator:property>-->
+        <validator:property name="maxAmount"   >
+            <validator:NotNull message="请填写限购金额"/>
+        </validator:property>
+        <validator:property name="buyFee"   >
+            <validator:NotNull message="请填写购买手续费"/>
+        </validator:property>
+        <validator:property name="annualYield"   >
+            <validator:NotNull message="请填写最低收益率"/>
+        </validator:property>
+        <validator:property name="period"   >
+            <validator:NotNull message="请填写保障期间"/>
+        </validator:property>
+        <!-- <validator:property name="maxNum"   >
+             <validator:NotNull message="请填写限购份数"/>
+         </validator:property>-->
+        <validator:property name="annualYield"   >
+            <validator:NotNull message="请填写最低收益率"/>
+        </validator:property>
+        <validator:property name="coolingOffPeriod"   >
+            <validator:NotNull message="请填写犹豫期"/>
+        </validator:property>
+        <validator:property name="saleBeginDate"   >
+            <validator:NotNull message="请填写销售日期开始日期"/>
+        </validator:property>
+        <validator:property name="saleEndDate"   >
+            <validator:NotNull message="请填写销售日期结束日期"/>
+        </validator:property>
+
+        <validator:property name="isCustomEffective"   >
+            <validator:NotNull message="请选择保险生效日期方式"/>
+        </validator:property>
+        <validator:property name="customEffectiveDataVo"   >
+            <validator:NotNull message="请填写保险生效日期"/>
+        </validator:property>
+        <validator:property name="isSupportNoCoolingOff"   >
+            <validator:NotNull message="请选择是否支持无犹豫期"/>
+        </validator:property>
+
+        <validator:property name="revenueWay"   >
+            <validator:NotNull message="请填写收益方式"/>
+        </validator:property>
+        <validator:property name="currencyType"   >
+            <validator:NotNull message="请填写购买币种"/>
+        </validator:property>
+        <validator:property name="historyBenefit"   >
+            <validator:NotNull message="请填写历史收益率"/>
+        </validator:property>
+        <validator:property name="refundFeeIntro"   >
+            <validator:NotNull message="请填写退保费用说明"/>
+        </validator:property>
+        <validator:property name="refundFeeIntro"   >
+            <validator:NotNull message="请选择是否支持部分领取"/>
+        </validator:property>
+        <validator:property name="isSupportInsAppend"   >
+            <validator:NotNull message="请选择是否支持保单追加"/>
+        </validator:property>
+        <validator:property name="isSupportReserveRefund"   >
+            <validator:NotNull message="请选择是否支持预约退保"/>
+        </validator:property>
+        <validator:property name="isSupportNoCoolingOff"   >
+            <validator:NotNull message="请选择是否支持无犹豫期"/>
+        </validator:property>
+
+
+        <validator:property name="sourceType"   >
+            <validator:NotNull message="请选择客户端"/>
+        </validator:property>
+        <validator:property name="canBuyArea"   >
+            <validator:NotNull message="请选择可购买区域"/>
+        </validator:property>
+
+        <validator:property name="historyBenefitDataList"   >
+            <validator:NotNull message="请填写实际年化收益率"/>
+        </validator:property>
+        <validator:property name="responsibilityKey"   >
+            <validator:NotNull message="请填写保障责任"/>
+        </validator:property>
+        <validator:property name="itemDetail"   >
+            <validator:NotNull message="请填写产品详情"/>
+        </validator:property>
+        <validator:property name="revenueDemo"   >
+            <validator:NotNull message="请填写收益演示"/>
+        </validator:property>
+        <validator:property name="insNotice"   >
+            <validator:NotNull message="请填写投保告知"/>
+        </validator:property>
+        <validator:property name="insStatements"   >
+            <validator:NotNull message="请填写 重要告知与声明"/>
+        </validator:property>
+
+        <validator:property name="insHealthInformed"   >
+            <validator:NotNull message="请填写健康告知"/>
+        </validator:property>
+
+        <validator:property name="insConfirmInformed"   >
+            <validator:NotNull message="请填写保单确认告知"/>
+        </validator:property>
+
+    </validator:validator>
+
+    <bean id="checkService" class="com.jd.jr.validator.service.CheckService"/>
+    <bean id="validatorInteceptor" class="com.jd.jr.validator.inteceptor.ValidatorInteceptor"/>
+</beans>

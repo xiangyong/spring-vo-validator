@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:validator="http://com.jd.jr/schema/validator"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://com.jd.jr/schema/validator http://com.jd.jr/schema/validator/validator.xsd"
+       default-lazy-init="false" default-autowire="byName">
+
+    <validator:validator id="nameValidator" class="com.yk.spring.bean.vo.User">
+        <validator:property name="skuId"   >
+            <validator:NotNull message="名字不能为空"/>
+            <validator:Size message="请保证名字最大长度为10,最小为1" max="10" min="1"/>
+        </validator:property>
+        <validator:property name="itemCode"   >
+            <validator:Max message="请保证年龄最大值10" value="10"/>
+        </validator:property>
+    </validator:validator>
+    <bean id="checkService" class="com.jd.jr.validator.service.CheckService"/>
+ </beans>

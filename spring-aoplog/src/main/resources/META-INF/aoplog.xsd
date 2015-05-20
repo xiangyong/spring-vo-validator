@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://com.jd.jr/schema/aoplog"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://com.jd.jr/schema/aoplog"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.springframework.org/schema/beans" />
+    <xsd:element name="aoplog" type="aoplogType">        </xsd:element>
+     <xsd:complexType name="aoplogType">
+         <xsd:complexContent>
+                  <xsd:extension base="beans:identifiedType">
+                 <xsd:group ref="beanElements"/>
+                 <xsd:attributeGroup ref="beanAttributes"/>
+
+             </xsd:extension>
+         </xsd:complexContent>
+     </xsd:complexType>
+
+
+    <xsd:group name="beanElements">
+        <xsd:sequence>
+
+            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+
+                <xsd:element ref="property"/>
+
+            </xsd:choice>
+        </xsd:sequence>
+    </xsd:group>
+
+    <xsd:element name="property" type="propertyType">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+	Bean definitions can have zero or more properties.
+	Property elements correspond to JavaBean setter methods exposed
+	by the bean classes. Spring supports primitives, references to other
+	beans in the same or related factories, lists, maps and properties.
+			]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+
+
+    <xsd:complexType name="propertyType">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="value" type="xsd:string"  />
+        <xsd:attribute name="ref" type="xsd:string"  />
+        <xsd:attribute name="class" type="xsd:string"  />
+    </xsd:complexType>
+
+    <xsd:attributeGroup name="beanAttributes">
+    <xsd:attribute name="name" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+	Can be used to create one or more aliases illegal in an (XML) id.
+	Multiple aliases can be separated by any number of spaces, commas,
+	or semi-colons (or indeed any mixture of the three).
+				]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="class" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation source="java:java.lang.Class"><![CDATA[
+	The fully qualified name of the bean's class, except if it serves only
+	as a parent definition for child bean definitions.
+				]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:attribute>
+   </xsd:attributeGroup>
+
+
+
+</xsd:schema>
